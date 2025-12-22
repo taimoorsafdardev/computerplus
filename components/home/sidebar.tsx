@@ -77,21 +77,7 @@ export default function Sidebar() {
                 </div>
             ) : (
                 <div className="mt-7">
-                    {/* <h1 className="text-lg mt-6 font-semibold">Popular Filters</h1>
-                    <div className="flex flex-col gap-2 mt-2">
-                        {categories.slice(0, 5).map((category) => (
-                            <Link
-                                href={`?filter=${category.name}`}
-                                key={category.name}
-                                className="text-sm hover:text-black font-semibold text-gray-500"
-                            >
-                                {category.name}
-                            </Link>
-                        ))}
-                    </div> */}
-
-                    {/* <h1 className="text-lg mt-4 font-semibold">All Categories</h1> */}
-                    <div className="flex flex-col gap-2 mt-2">
+                    <div className="flex flex-col gap-3 mt-2">
                         {categories.map((category) => (
                             <Link
                                 href={`?filter=${category.name}`}

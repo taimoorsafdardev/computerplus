@@ -80,7 +80,7 @@ export function ProductCard({ product, user }: ProductCardProps) {
         <Image
           src={product.image}
           alt={product.name}
-          className="rounded-xl transform transition-transform duration-300 ease-in-out group-hover:scale-110"
+          className="rounded-2xl transform transition-transform duration-300 ease-in-out group-hover:scale-110"
           width={600}
           height={600}
         />

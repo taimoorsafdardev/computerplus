@@ -32,7 +32,7 @@ function PageContent() {
     if (!user) return <div className="flex justify-center mt-20">Loading user...</div>;
 
     return (
-        <main className="container mx-auto">
+        <main className="container mx-auto px-8">
             <div className="border-b py-6">
                 <h1 className="text-2xl font-bold capitalize">Welcome back! {user.name}</h1>
                 <p>Visit the store and find your favorite products.</p>

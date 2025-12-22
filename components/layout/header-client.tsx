@@ -14,7 +14,7 @@ export default function HeaderClient({ user }: { user: SessionType }) {
     }
 
     return (
-        <header className="container mx-auto w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+        <header className="container px-8 mx-auto w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
             <div className="flex h-16 items-center">
 
                 {/* Logo - left */}

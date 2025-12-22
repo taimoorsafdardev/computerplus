@@ -1,8 +1,8 @@
 import { redisClient } from "@/lib/redis";
 import { Cookies } from "@/types/cookies";
-import { email, z } from "zod";
+import { z } from "zod";
 
-const SESSION_EXPIRATION_SECONDS = 60 * 60 * 24 * 1 * 7;
+const SESSION_EXPIRATION_SECONDS = 60 * 15;
 const COOKIE_SESSION_KEY = "session-id"
 
 export const sessionSchema = z.object({

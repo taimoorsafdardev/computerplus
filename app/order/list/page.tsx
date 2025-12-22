@@ -78,7 +78,7 @@ export default function Page() {
 
 
   return (
-    <main className="container mx-auto mt-10">
+    <main className="container mx-auto mt-10 px-8">
       <section>
         <h1 className="text-2xl font-bold">Order List</h1>
         <p>Here you can view all your orders that you have placed.</p>
@@ -90,7 +90,7 @@ export default function Page() {
               <TableRow>
                 <TableHead>Placed</TableHead>
                 <TableHead>OID</TableHead>
-                <TableHead className="w-[150px]">Status</TableHead>
+                <TableHead className="w-37.5">Status</TableHead>
                 <TableHead>Delivered By</TableHead>
                 <TableHead>Delivery Date</TableHead>
                 <TableHead>Return Date</TableHead>

@@ -18,11 +18,9 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 
 # --- Build-time dummy environment variables ---
-# Prisma needs DATABASE_URL to generate client
-# Next.js needs Cloudinary + Redis envs to build static pages
-# ENV DATABASE_URL="file:./dev.db"
-# ENV REDIS_URL="http://dummy"
-# ENV REDIS_TOKEN="dummy"
+ENV DATABASE_URL="file:./dev.db"
+ENV REDIS_URL="http://dummy"
+ENV REDIS_TOKEN="dummy"
 
 # Generate Prisma client
 RUN npx prisma generate

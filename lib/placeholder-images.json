@@ -1,0 +1,292 @@
+{
+  "placeholderImages": [
+    {
+      "id": "1",
+      "description": "Experience unparalleled processing power with the QuantumCore i9. With 16 cores and 32 threads, it's built for extreme gaming, content creation, and multitasking. Unlocked for overclocking to push performance to its absolute limits.",
+      "imageUrl": "https://images.unsplash.com/photo-1613483187550-1458bbdb0996?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjcHUlMjBwcm9jZXNzb3J8ZW58MHx8fHwxNzYzMTg5MDg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cpu processor",
+      "features": [
+        {
+          "name": "Core Count",
+          "value": "16"
+        },
+        {
+          "name": "Thread Count",
+          "value": "32"
+        },
+        {
+          "name": "Boost Clock",
+          "value": "5.8 GHz"
+        },
+        {
+          "name": "Socket",
+          "value": "LGA1700"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "description": "Showcase your build in style with the AeroCool RGB Gaming Case. Featuring a tempered glass side panel, customizable RGB lighting, and excellent airflow, this mid-tower case is the perfect blend of aesthetics and performance.",
+      "imageUrl": "https://images.unsplash.com/photo-1587202372583-49330a15584d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb21wdXRlciUyMGNhc2V8ZW58MHx8fHwxNzYzMjE0NDc3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "computer case",
+      "features": [
+        {
+          "name": "Type",
+          "value": "Mid-Tower"
+        },
+        {
+          "name": "Motherboard Support",
+          "value": "ATX, Micro-ATX"
+        },
+        {
+          "name": "Lighting",
+          "value": "ARGB"
+        },
+        {
+          "name": "Side Panel",
+          "value": "Tempered Glass"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "description": "The GigaWave X-99 is the ultimate foundation for your high-end PC. Supporting the latest processors, up to 128GB of DDR5 RAM, and multiple M.2 NVMe SSDs, it provides the stability and connectivity you need for a top-tier system.",
+      "imageUrl": "https://images.unsplash.com/photo-1662553670836-cfb159e1d54f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtb3RoZXJib2FyZCUyMGNpcmN1aXR8ZW58MHx8fHwxNzYzMjM5MDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motherboard circuit",
+      "features": [
+        {
+          "name": "Chipset",
+          "value": "Intel Z790"
+        },
+        {
+          "name": "Memory Support",
+          "value": "DDR5 7200MHz+"
+        },
+        {
+          "name": "Form Factor",
+          "value": "ATX"
+        },
+        {
+          "name": "Wi-Fi",
+          "value": "Wi-Fi 6E"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "description": "Unleash lightning-fast speeds with HyperXtreme 32GB DDR5 RAM. Clocking in at 6000MHz, this dual-channel kit ensures smooth multitasking and an edge in competitive gaming. Features a sleek heat spreader for optimal thermal performance.",
+      "imageUrl": "https://images.unsplash.com/photo-1676554565685-3aeb5d7ad1b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyYW0lMjBtZW1vcnl8ZW58MHx8fHwxNzYzMTMxMTE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ram memory",
+      "features": [
+        {
+          "name": "Capacity",
+          "value": "32GB (2x16GB)"
+        },
+        {
+          "name": "Speed",
+          "value": "6000MHz"
+        },
+        {
+          "name": "Type",
+          "value": "DDR5"
+        },
+        {
+          "name": "Latency",
+          "value": "CL36"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "description": "The NVSword RTX 9090 is the pinnacle of graphics performance. With 24GB of GDDR6X memory and next-gen ray tracing cores, it delivers breathtaking visuals and unbeatable frame rates in the most demanding games and creative applications.",
+      "imageUrl": "https://images.unsplash.com/photo-1555618254-84e2cf498b01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxncmFwaGljcyUyMGNhcmR8ZW58MHx8fHwxNzYzMjI5MTEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "graphics card",
+      "features": [
+        {
+          "name": "VRAM",
+          "value": "24GB GDDR6X"
+        },
+        {
+          "name": "Boost Clock",
+          "value": "2.1 GHz"
+        },
+        {
+          "name": "Interface",
+          "value": "PCIe 5.0"
+        },
+        {
+          "name": "Output",
+          "value": "HDMI 2.1, DP 1.4a"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "description": "Boot your system in seconds and load applications instantly with the SwiftRead 2TB NVMe SSD. With read/write speeds up to 7,000/6,500 MB/s, it's one of the fastest drives on the market, perfect for gamers and professionals.",
+      "imageUrl": "https://images.unsplash.com/photo-1724251280779-65a10faf1b6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzc2QlMjBkcml2ZXxlbnwwfHx8fDE3NjMyMzkwMjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ssd drive",
+      "features": [
+        {
+          "name": "Capacity",
+          "value": "2TB"
+        },
+        {
+          "name": "Interface",
+          "value": "PCIe 4.0 NVMe"
+        },
+        {
+          "name": "Read Speed",
+          "value": "7,000 MB/s"
+        },
+        {
+          "name": "Write Speed",
+          "value": "6,500 MB/s"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "description": "Power your high-performance rig with the VoltMax 850W Gold PSU. This fully modular power supply offers 80+ Gold efficiency, ensuring stable and reliable power delivery with minimal energy waste. Includes premium sleeved cables.",
+      "imageUrl": "https://images.unsplash.com/photo-1672689944912-9a123a34a1cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cG93ZXIlMjBzdXBwbHl8ZW58MHx8fHwxNzYzMTMxMTE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "power supply",
+      "features": [
+        {
+          "name": "Wattage",
+          "value": "850W"
+        },
+        {
+          "name": "Efficiency",
+          "value": "80+ Gold"
+        },
+        {
+          "name": "Modularity",
+          "value": "Fully Modular"
+        },
+        {
+          "name": "Form Factor",
+          "value": "ATX"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "description": "Keep your CPU temperatures low under any load with the ArcticFreeze Liquid Cooler. Featuring a 240mm radiator, two high-static pressure fans, and addressable RGB on the pump head, it delivers both performance and style.",
+      "imageUrl": "https://images.unsplash.com/photo-1658671227304-9a989a842c88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y3B1JTIwY29vbGVyfGVufDB8fHx8MTc2MzEzMTExN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cpu cooler",
+      "features": [
+        {
+          "name": "Radiator Size",
+          "value": "240mm"
+        },
+        {
+          "name": "Fan Speed",
+          "value": "500-2000 RPM"
+        },
+        {
+          "name": "Lighting",
+          "value": "Addressable RGB"
+        },
+        {
+          "name": "Socket Support",
+          "value": "Intel & AMD"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "description": "Enjoy a superior typing experience with the MechanoType Pro Keyboard. It features tactile mechanical switches, full N-key rollover, and durable PBT keycaps. The customizable per-key RGB lighting lets you personalize your setup.",
+      "imageUrl": "https://images.unsplash.com/photo-1595225386386-79c3543adbd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtZWNoYW5pY2FsJTIwa2V5Ym9hcmR8ZW58MHx8fHwxNzYzMjI5NzUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mechanical keyboard",
+      "features": [
+        {
+          "name": "Switch Type",
+          "value": "Tactile Mechanical"
+        },
+        {
+          "name": "Layout",
+          "value": "Full-size"
+        },
+        {
+          "name": "Backlight",
+          "value": "Per-key RGB"
+        },
+        {
+          "name": "Keycaps",
+          "value": "Double-shot PBT"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "description": "Achieve pixel-perfect accuracy with the GlidePoint Gaming Mouse. It boasts a 20,000 DPI optical sensor, lightweight design, and ultra-flexible cable for unrestricted movement. Includes 6 programmable buttons to gain an edge.",
+      "imageUrl": "https://images.unsplash.com/photo-1632160871990-be30194885aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnYW1pbmclMjBtb3VzZXxlbnwwfHx8fDE3NjMxMzQwNjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gaming mouse",
+      "features": [
+        {
+          "name": "Sensor",
+          "value": "20,000 DPI Optical"
+        },
+        {
+          "name": "Weight",
+          "value": "65g"
+        },
+        {
+          "name": "Buttons",
+          "value": "6 Programmable"
+        },
+        {
+          "name": "Cable",
+          "value": "Ultra-flexible"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "description": "Immerse yourself in stunning detail with the CrystalView 4K 27\" Monitor. This IPS panel delivers vibrant colors, wide viewing angles, and a 144Hz refresh rate for ultra-smooth gameplay. It's the perfect centerpiece for any setup.",
+      "imageUrl": "https://images.unsplash.com/photo-1560131914-2e469a0e8607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb21wdXRlciUyMG1vbml0b3J8ZW58MHx8fHwxNzYzMTgyOTU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "computer monitor",
+      "features": [
+        {
+          "name": "Resolution",
+          "value": "4K (3840x2160)"
+        },
+        {
+          "name": "Panel Type",
+          "value": "IPS"
+        },
+        {
+          "name": "Refresh Rate",
+          "value": "144Hz"
+        },
+        {
+          "name": "Size",
+          "value": "27-inch"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "description": "Experience crystal-clear audio without the wires with the SoundScape Wireless Headset. It features 50mm drivers, a detachable noise-canceling microphone, and a 20-hour battery life for marathon gaming sessions.",
+      "imageUrl": "https://images.unsplash.com/photo-1593112723196-e841f5c60799?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnYW1pbmclMjBoZWFkc2V0fGVufDB8fHx8MTc2MzE3MjMyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gaming headset",
+      "features": [
+        {
+          "name": "Connectivity",
+          "value": "2.4GHz Wireless"
+        },
+        {
+          "name": "Drivers",
+          "value": "50mm Neodymium"
+        },
+        {
+          "name": "Battery Life",
+          "value": "20 Hours"
+        },
+        {
+          "name": "Sound Quality",
+          "value": "Good"
+        }
+      ]
+    }
+  ]
+}

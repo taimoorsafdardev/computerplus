@@ -292,7 +292,7 @@ export default function OrderDetails({ user, id }: Props) {
                                     Rs.{Number(item.product.price).toLocaleString()}
                                 </p>
 
-                                <p className="text-gray-500 text-sm">Quantity: {item.quantity}</p>
+                                <p className="text-gray-500 text-sm">Unit Price: {item.quantity} x {Number(item.product.price).toLocaleString()} = Rs.{Number(item.price).toLocaleString()}</p>
                             </div>
                         </div>
                     ))}

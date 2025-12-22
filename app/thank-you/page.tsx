@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { CheckCircle, ShoppingBag } from 'lucide-react';
@@ -18,18 +18,17 @@ export default function Page() {
 function PageContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
+    const hasCheckedRef = useRef(false);
 
     const orderId = searchParams.get('orderId');
 
     useEffect(() => {
+        if (hasCheckedRef.current) return; // 🛑 prevent second run
+        hasCheckedRef.current = true;
+
         const lastOrderId = sessionStorage.getItem('last_order_id');
 
-        if (!orderId) {
-            router.replace('/order/new');
-            return;
-        }
-
-        if (lastOrderId !== orderId) {
+        if (!orderId || lastOrderId !== orderId) {
             router.replace('/order/new');
             return;
         }
@@ -40,7 +39,7 @@ function PageContent() {
     if (!orderId) return null;
 
     return (
-        <div className="flex mt-20 justify-center bg-muted/20 px-4">
+        <div className="flex mt-20 justify-center px-4">
             <div className="w-full max-w-md rounded-2xl bg-background p-8 text-center">
                 <CheckCircle className="mx-auto mb-4 h-14 w-14 text-green-600" />
 

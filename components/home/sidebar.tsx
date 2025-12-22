@@ -1,6 +1,6 @@
 "use client"
 
-import { Funnel, Search } from "lucide-react";
+import { Funnel, RotateCw, Search } from "lucide-react";
 import { Input } from "../ui/input";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -48,9 +48,14 @@ export default function Sidebar() {
 
     return (
         <section className="pb-20">
-            <div className="flex items-center gap-2">
-                <Funnel size={18} className="text-gray-500" />
-                <h1 className="font-semibold text-xl">Filters</h1>
+            <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <Funnel size={18} className="text-gray-500" />
+                    <h1 className="font-semibold text-xl">Filters</h1>
+                </div>
+                <Link href={"/"}>
+                    <RotateCw className="size-4 mr-2 text-gray-500" />
+                </Link>
             </div>
             <form onSubmit={handleSearch} className="mt-4 relative w-full max-w-sm group">
                 <Input

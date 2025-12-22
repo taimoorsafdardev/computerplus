@@ -86,10 +86,9 @@ export default function Page() {
     updateQuantity(productId, qty);
   };
 
-  const handlePlaceOrder = () => {
-    const orderId = placeOrder();
-    toast.success("Order Placed");
-    router.push('/order/list');
+  const handlePlaceOrder = async () => {
+    const orderId = await placeOrder();
+    router.push(`/thank-you?orderId=${orderId}`);
   };
 
   return (
@@ -144,13 +143,17 @@ export default function Page() {
                           Rs.{Number(product.price).toLocaleString()}
                         </p>
                       </div>
-                      <Button
-                        size="icon"
-                        variant="outline"
-                        onClick={() => handleAddToCart(product)}
-                      >
-                        <Plus className="h-4 w-4" />
-                      </Button>
+                      {product.tag === "out of stock" ? (
+                        <p className='text-xs bg-red-500 text-white rounded-full px-2 py-0.5 pb-1'>out of stock</p>
+                      ) : (
+                        <Button
+                          size="icon"
+                          variant="outline"
+                          onClick={() => handleAddToCart(product)}
+                        >
+                          <Plus className="h-4 w-4" />
+                        </Button>
+                      )}
                     </div>
                   ))}
 

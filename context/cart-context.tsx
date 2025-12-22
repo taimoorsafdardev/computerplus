@@ -3,7 +3,6 @@
 import { Product } from '@/types/product';
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { OrderItem } from '@/types/order';
-import { useRouter } from 'next/navigation';
 
 interface CartContextType {
   cartItems: OrderItem[];
@@ -22,7 +21,6 @@ const CART_STORAGE_KEY = 'erp_cart';
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cartItems, setCartItems] = useState<OrderItem[]>([]);
-  const router = useRouter();
 
   /* 🔁 Load cart from localStorage on first render */
   useEffect(() => {
@@ -101,7 +99,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
           items: cartItems.map((item) => ({
             productId: item.productId,
             quantity: item.quantity,
-            price: item.price,
+            price: String(Number(item.price) * item.quantity),
           })),
         }),
       });
@@ -112,12 +110,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         throw new Error(data?.message || 'Order failed');
       }
 
-      // ✅ Used ONLY for thank-you page access (not auth)
       sessionStorage.setItem('last_order_id', data.orderId);
-
       clearCart();
-
-      router.push(`/thank-you?orderId=${data.orderId}`);
 
       return data.orderId;
     } catch (error) {

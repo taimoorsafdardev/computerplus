@@ -7,7 +7,6 @@ import {
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -84,7 +83,7 @@ export default function Page() {
         <h1 className="text-2xl font-bold">Order List</h1>
         <p>Here you can view all your orders that you have placed.</p>
 
-        <ScrollArea className="mt-4">
+        <ScrollArea className="mt-4 mb-20">
           <Table className="min-w-full">
             <TableCaption>A list of your recent orders</TableCaption>
             <TableHeader>

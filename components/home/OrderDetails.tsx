@@ -290,10 +290,10 @@ export default function OrderDetails({ user, id }: Props) {
                                 </Link>
 
                                 <p className="font-semibold text-accent text-lg">
-                                    Rs.{Number(item.unitPrice).toLocaleString()}
+                                    Rs.{item.discount ? Number(item.discountPrice).toLocaleString() : Number(item.unitPrice).toLocaleString()}
                                 </p>
 
-                                <p className="text-gray-500 text-sm">Unit Total Price: {item.quantity} x {Number(item.unitPrice).toLocaleString()} = Rs.{Number(item.unitPrice).toLocaleString()}</p>
+                                <p className="text-gray-500 text-sm">Unit Total Price: {item.quantity} x {item.discount ? Number(item.discountPrice).toLocaleString() : Number(item.unitPrice).toLocaleString()} = Rs.{item.discount ? (Number(item.discountPrice) * item.quantity).toLocaleString() : (Number(item.unitPrice) * item.quantity).toLocaleString()}</p>
                             </div>
                         </div>
                     ))}

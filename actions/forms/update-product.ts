@@ -23,6 +23,20 @@ export default async function updateProduct(id: string, data: z.infer<typeof cre
 
         const parsedData = parseResult.data;
 
+        if (Number(parsedData.discount) == 0) {
+            return {
+                message: "Discount can't be 0",
+                success: false,
+            };
+        }
+
+        if (Number(parsedData.discount) < 0) {
+            return {
+                message: "Discount can't be less than 1",
+                success: false,
+            };
+        }
+
         let discountPrice: string | null = null;
         if (parsedData.discount) {
             const discountInPrice = Number(parsedData.price) * (Number(parsedData.discount) / 100);

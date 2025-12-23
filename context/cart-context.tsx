@@ -55,11 +55,17 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         {
           productId: product.id!,
           orderId: '',
+          quantity,
+          price: String(product.price),
           name: product.name,
           image: product.image,
-          price: String(product.price),
-          quantity,
-          product,
+          discount: String(product.discount) ?? null,
+          discountPrice: String(product.discountPrice) ?? null,
+          product, // optional, full product object
+          productName: product.name,
+          productImage: product.image,
+          unitPrice: String(product.price),
+          total: String(Number(product.discountPrice ?? product.price) * quantity),
         },
       ];
     });
@@ -97,9 +103,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         body: JSON.stringify({
           total: totalAmount.toString(),
           items: cartItems.map((item) => ({
+            productName: item.product.name,
+            productImage: item.product.image,
+            unitPrice: item.product.price,
+            discount: item.product.discount,
+            discountPrice: item.product.discountPrice,
             productId: item.productId,
             quantity: item.quantity,
-            price: String(Number(item.price) * item.quantity),
+            total: item.product.discount ? String(Number(item.product.discountPrice) * item.quantity) : String(Number(item.unitPrice) * item.quantity),
           })),
         }),
       });
@@ -123,7 +134,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const totalAmount = useMemo(
     () =>
       cartItems.reduce(
-        (total, item) => total + Number(item.price) * item.quantity,
+        (total, item) => total + (item.product?.discount ? Number(item.product.discountPrice) * item.quantity : Number(item.unitPrice) * item.quantity),
         0
       ),
     [cartItems]

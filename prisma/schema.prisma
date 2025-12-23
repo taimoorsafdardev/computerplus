@@ -67,12 +67,23 @@ model Order {
 
 model OrderItem {
   id        String   @id @default(uuid())
+  
   quantity  Int
-  price     String
-  productId String
-  product   Product? @relation(fields: [productId], references: [id])
+
+  productName      String
+  productImage     String
+  unitPrice        String
+  discount         String?
+  discountPrice    String?
+
+  total            String
+
+  productId    String?  
+  product      Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  
   orderId   String
   order     Order?   @relation(fields: [orderId], references: [id])
+  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

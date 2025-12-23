@@ -22,9 +22,14 @@ export async function POST(req: Request) {
         }: {
             total: string;
             items: {
+                productName: string
+                productImage: string
+                unitPrice: string
+                discount: string
+                discountPrice: string
                 productId: string;
                 quantity: number;
-                price: string;
+                total: string;
             }[];
         } = body;
 
@@ -43,9 +48,14 @@ export async function POST(req: Request) {
                 total,
                 orderItems: {
                     create: items.map((item) => ({
+                        productName: item.productName,
+                        productImage: item.productImage,
+                        unitPrice: item.unitPrice,
+                        discount: item.discount,
+                        discountPrice: item.discountPrice,
                         productId: item.productId,
                         quantity: item.quantity,
-                        price: item.price,
+                        total: item.total,
                     })),
                 },
             },

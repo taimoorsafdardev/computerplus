@@ -34,6 +34,7 @@ import { CalendarIcon } from "lucide-react";
 import { format } from "@/lib/format";
 import { toast } from "sonner";
 import { SessionType } from "@/lib/auth/core/session";
+import Link from "next/link";
 
 type Props = {
     user: SessionType
@@ -268,10 +269,10 @@ export default function OrderDetails({ user, id }: Props) {
                         <div key={item.id} className="relative hover:bg-neutral-100 transition-all rounded-2xl p-4 border shadow-sm">
 
                             {/* Product Image */}
-                            {item.product.image ? (
+                            {item.productImage ? (
                                 <Image
-                                    src={item.product.image}
-                                    alt={item.product.name}
+                                    src={item.productImage}
+                                    alt={item.productName}
                                     className="rounded-xl transform transition-transform duration-300 ease-in-out group-hover:scale-110"
                                     width={600}
                                     height={600}
@@ -284,15 +285,15 @@ export default function OrderDetails({ user, id }: Props) {
 
                             {/* Product Info */}
                             <div className="flex flex-col gap-1 mt-4">
-                                <p className="font-semibold text-sm text-gray-900">
-                                    {item.product.name.length > 50 ? item.product.name.slice(0, 50) + "..." : item.product.name}
-                                </p>
+                                <Link href={`/product/${item.productId}`} className="font-semibold hover:underline text-sm text-gray-900">
+                                    {item.productName.length > 50 ? item.productName.slice(0, 50) + "..." : item.product.name}
+                                </Link>
 
                                 <p className="font-semibold text-accent text-lg">
-                                    Rs.{Number(item.product.price).toLocaleString()}
+                                    Rs.{Number(item.unitPrice).toLocaleString()}
                                 </p>
 
-                                <p className="text-gray-500 text-sm">Unit Price: {item.quantity} x {Number(item.product.price).toLocaleString()} = Rs.{Number(item.price).toLocaleString()}</p>
+                                <p className="text-gray-500 text-sm">Unit Total Price: {item.quantity} x {Number(item.unitPrice).toLocaleString()} = Rs.{Number(item.unitPrice).toLocaleString()}</p>
                             </div>
                         </div>
                     ))}

@@ -135,14 +135,32 @@ export default function Page() {
                         height={48}
                         className="rounded-md object-cover"
                       />
-                      <div className="flex-1">
-                        <Link href={`/product/${product.id}`} className='hover:underline'>
+                      <div className="flex-1 flex flex-col">
+                        {/* Product Name */}
+                        <Link
+                          href={`/product/${product.id}`}
+                          className="hover:underline w-[15rem] text-left"
+                        >
                           {product.name.length > 50 ? product.name.slice(0, 50) + '...' : product.name}
                         </Link>
-                        <p className="text-sm text-muted-foreground">
-                          Rs.{Number(product.price).toLocaleString()}
-                        </p>
+
+                        {/* Price */}
+                        {product.discount ? (
+                          <div className="flex items-center gap-2 pt-1">
+                            <span className="font-semibold text-accent text-lg">
+                              Rs.{Number(product.discountPrice).toLocaleString()}
+                            </span>
+                            <span className="font-semibold text-accent/80 text-sm line-through">
+                              Rs.{Number(product.price).toLocaleString()}
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="font-semibold text-accent text-lg pt-1">
+                            Rs.{Number(product.price).toLocaleString()}
+                          </span>
+                        )}
                       </div>
+
                       {product.tag === "out of stock" ? (
                         <p className='text-xs bg-red-500 text-white rounded-full px-2 py-0.5 pb-1'>out of stock</p>
                       ) : (
@@ -195,8 +213,8 @@ export default function Page() {
                         {/* Product Image */}
                         <TableCell className="text-center">
                           <Image
-                            src={item.image}
-                            alt={item.name}
+                            src={item.product.image}
+                            alt={item.product.name}
                             width={48}
                             height={48}
                             className="mx-auto rounded-md object-cover"
@@ -206,7 +224,7 @@ export default function Page() {
                         {/* Product Name */}
                         <TableCell className="max-w-[260px] truncate">
                           <Link href={`/product/${item.productId}`} className='hover:underline'>
-                            {item.name}
+                            {item.product.name}
                           </Link>
                         </TableCell>
 
@@ -242,12 +260,12 @@ export default function Page() {
 
                         {/* Price */}
                         <TableCell className="text-right">
-                          Rs.{Number(item.price).toLocaleString()}
+                          Rs.{item.product.discount ? Number(item.product.discountPrice).toLocaleString() : Number(item.product.price).toLocaleString()}
                         </TableCell>
 
                         {/* Total */}
                         <TableCell className="text-right font-medium">
-                          Rs.{(Number(item.price) * item.quantity).toLocaleString()}
+                          Rs.{item.product.discount ? (Number(item.product.discountPrice) * item.quantity).toLocaleString() : (Number(item.product.price) * item.quantity).toLocaleString()}
                         </TableCell>
 
                         {/* Action */}

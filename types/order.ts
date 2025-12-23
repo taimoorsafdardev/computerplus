@@ -19,13 +19,22 @@ export type Order = {
 
 export type OrderItem = {
     id?: string;
-    name: string
-    image: string
+
     quantity: number;
-    price: string
+
+    productName: string
+    productImage: string
+    unitPrice: string
+    discount: string
+    discountPrice: string
+
+    total: string
+
     productId: string;
     product: Product
+
     orderId: string;
+
     createdAt?: Date;
     updatedAt?: Date;
 }

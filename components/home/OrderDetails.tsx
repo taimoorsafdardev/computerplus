@@ -129,7 +129,7 @@ export default function OrderDetails({ user, id }: Props) {
     if (!order) return <div className="text-center py-10">Order not found</div>;
 
     return (
-        <main className="container mx-auto mt-10 mb-20">
+        <main className="container mx-auto mt-10 mb-20 px-8">
             <h1 className="text-2xl font-bold mb-6">Order Details</h1>
 
             <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">

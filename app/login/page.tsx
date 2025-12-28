@@ -188,20 +188,13 @@ export default function Page() {
                 name="username"
                 render={({ field }) => (
                   <FormItem>
-                    <div className="flex items-center">
-                      <FormLabel>Username</FormLabel>
-                      {/* <Link
-                        href="#"
-                        className="ml-auto inline-block text-sm underline"
-                      >
-                        Forgot your username?
-                      </Link> */}
-                    </div>
+                    <FormLabel>Username</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="your username"
                         {...field}
                         type="text"
+                        required
                       />
                     </FormControl>
                     <FormMessage />
@@ -213,20 +206,14 @@ export default function Page() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <div className="flex items-center">
-                      <FormLabel>Password</FormLabel>
-                      {/* <Link
-                        href="#"
-                        className="ml-auto inline-block text-sm underline"
-                      >
-                        Forgot your password?
-                      </Link> */}
-                    </div>
+                    <FormLabel>Password</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="••••••••"
                         {...field}
                         type="password"
+                        required
+                        autoComplete="off"
                       />
                     </FormControl>
                     <FormMessage />

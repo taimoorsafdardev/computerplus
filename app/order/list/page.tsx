@@ -17,71 +17,130 @@ import { Order, OrderStatus } from "@/types/order";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { format } from "@/lib/format";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const PAGE_SIZE = 20;
 
 export default function Page() {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [status, setStatus] = useState<OrderStatus | "all">("all");
+  const [timeHours, setTimeHours] = useState<number | "all">("all");
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const { ref, inView } = useInView({ threshold: 0 });
 
   const statusColorMap: Record<OrderStatus, string> = {
+    all: "",
     pending: "text-yellow-500 bg-yellow-100",
     cancelled: "text-red-500 bg-red-100",
     delivered: "text-green-500 bg-green-100",
     returned: "text-blue-500 bg-blue-100",
   };
 
-  const fetchOrders = useCallback(async (pageToFetch: number) => {
-    if (!hasMore) return;
+  const fetchOrders = useCallback(
+    async (pageToFetch: number) => {
+      try {
+        setLoading(true);
 
-    try {
-      setLoading(true);
-      const params = new URLSearchParams();
-      params.set("skip", (pageToFetch * PAGE_SIZE).toString());
-      params.set("take", PAGE_SIZE.toString());
+        const params = new URLSearchParams();
+        params.set("skip", (pageToFetch * PAGE_SIZE).toString());
+        params.set("take", PAGE_SIZE.toString());
 
-      const res = await fetch(`/api/fetching/fetch-orders?${params.toString()}`);
-      const json = await res.json();
+        if (status !== "all") {
+          params.set("status", status);
+        }
 
-      if (json.success) {
-        setOrders(prev => {
-          // Deduplicate by order ID
-          const combined = [...prev, ...json.data];
-          const unique = Array.from(new Map(combined.map(o => [o.id, o])).values());
-          return unique;
-        });
+        if (timeHours !== "all") {
+          params.set("hours", String(timeHours));
+        }
 
-        if (json.data.length < PAGE_SIZE) setHasMore(false);
-      } else {
+        const res = await fetch(`/api/fetching/fetch-orders?${params.toString()}`);
+        const json = await res.json();
+
+        if (json.success) {
+          setOrders(prev =>
+            pageToFetch === 0 ? json.data : [...prev, ...json.data]
+          );
+
+          if (json.data.length < PAGE_SIZE) {
+            setHasMore(false);
+          }
+        } else {
+          setHasMore(false);
+        }
+      } catch (err) {
+        console.error(err);
         setHasMore(false);
+      } finally {
+        setLoading(false);
       }
-    } catch (err) {
-      console.error(err);
-      setHasMore(false);
-    } finally {
-      setLoading(false);
-    }
-  }, [hasMore]);
+    },
+    [status, timeHours]
+  );
 
-  // Fetch on page change
   useEffect(() => {
     fetchOrders(page);
   }, [page, fetchOrders]);
 
-  // Intersection Observer to load next page
   useEffect(() => {
-    if (inView && hasMore && !loading) setPage(prev => prev + 1);
-  }, [inView, hasMore, loading]);
+    setOrders([]);
+    setPage(0);
+    setHasMore(true);
+  }, [status, timeHours]);
 
+  useEffect(() => {
+    if (inView && hasMore && !loading) {
+      setPage(prev => prev + 1);
+    }
+  }, [inView, hasMore, loading]);
 
   return (
     <main className="container mx-auto mt-10 px-8">
       <section>
-        <h1 className="text-2xl font-bold">Order List</h1>
-        <p>Here you can view all your orders that you have placed.</p>
+
+        <div className="flex justify-between items-end">
+          <div>
+            <h1 className="text-2xl font-bold">Order List</h1>
+            <p>Here you can view all your orders that you have placed.</p>
+          </div>
+          <div className="flex gap-4">
+            <Select
+              value={status}
+              onValueChange={(value) => setStatus(value as OrderStatus | "all")}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select State" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                <SelectItem value="pending">Pending</SelectItem>
+                <SelectItem value="delivered">Delivered</SelectItem>
+                <SelectItem value="cancelled">Cancelled</SelectItem>
+                <SelectItem value="returned">Returned</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select
+              value={timeHours === "all" ? "all" : String(timeHours)}
+              onValueChange={(value) =>
+                setTimeHours(value === "all" ? "all" : Number(value))
+              }
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select Time" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Time</SelectItem>
+                <SelectItem value="1">Last hour</SelectItem>
+                <SelectItem value="24">Last 24 hours</SelectItem>
+                <SelectItem value="168">Last week</SelectItem>
+                <SelectItem value="672">Last month</SelectItem>
+                <SelectItem value="2016">Last 3 months</SelectItem>
+              </SelectContent>
+            </Select>
+
+          </div>
+        </div>
 
         <ScrollArea className="mt-4 mb-20">
           <Table className="min-w-full">

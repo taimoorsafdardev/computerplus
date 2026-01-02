@@ -1,7 +1,7 @@
 import { SessionType } from "@/lib/auth/core/session";
 import { Product } from "./product";
 
-export type OrderStatus = 'pending' | 'cancelled' | 'delivered' | "returned";
+export type OrderStatus = 'all' | 'pending' | 'cancelled' | 'delivered' | "returned";
 
 export type Order = {
     id: string;

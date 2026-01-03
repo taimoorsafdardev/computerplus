@@ -111,8 +111,8 @@ export default function OrderDetails({ user, id }: Props) {
             const result = await res.json();
 
             if (result.success) {
-                window.location.reload();
                 setOrder(result.data); // update local state
+                toast.success("Updated Info")
             } else {
                 toast.error(result.message || "Failed to update order");
             }
@@ -285,7 +285,7 @@ export default function OrderDetails({ user, id }: Props) {
 
                             {/* Product Info */}
                             <div className="flex flex-col gap-1 mt-4">
-                                <Link href={`/product/${item.productId}`} className="font-semibold hover:underline text-sm text-gray-900">
+                                <Link href={`/product/${item.productId}`} prefetch={true} className="font-semibold hover:underline text-sm text-gray-900">
                                     {item.productName.length > 50 ? item.productName.slice(0, 50) + "..." : item.product.name}
                                 </Link>
 

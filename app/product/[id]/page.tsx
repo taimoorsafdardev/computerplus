@@ -1,15 +1,19 @@
-import fetchProduct from "@/actions/fetching/fetch-product";
-import ProductDetail from "@/components/product-detail";
-import { Product } from "@/types/product";
+'use client';
+import { useEffect, useState, use } from 'react';
+import ProductDetail from '@/components/product-detail';
+import MainLoader from '@/components/MainLoader';
+import { Product } from '@/types/product';
 
-type Props = {
-    params: Promise<{ id: string }>;
-}
+export default function Page({ params }: { params: Promise<{ id: string }> }) {
+    const resolvedParams = use(params); // unwrap the promise
+    const [product, setProduct] = useState<Product | null>(null);
 
-export default async function Page({ params }: Props) {
-    const { id } = await params;
+    useEffect(() => {
+        fetch(`/api/fetching/fetch-product?id=${resolvedParams.id}`)
+            .then(res => res.json())
+            .then(json => setProduct(json.data));
+    }, [resolvedParams.id]);
 
-    const res = await fetchProduct({ id })
-
-    return <ProductDetail product={res.data as Product} />;
+    if (!product) return <MainLoader />;
+    return <ProductDetail product={product} />;
 }

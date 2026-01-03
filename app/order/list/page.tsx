@@ -161,7 +161,7 @@ export default function Page() {
                 <TableRow key={order.id}>
                   <TableCell>{order.createdAt ? format(order.createdAt) : "-"}</TableCell>
                   <TableCell className="font-medium hover:underline">
-                    <Link href={`/order/${order.id}`}>{order.id}</Link>
+                    <Link href={`/order/${order.id}`} prefetch={true}>{order.id}</Link>
                   </TableCell>
                   <TableCell>
                     <div

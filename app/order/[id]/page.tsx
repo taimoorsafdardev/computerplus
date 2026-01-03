@@ -12,5 +12,7 @@ export default async function Page({ params }: Props) {
     if (!user) {
         return <div>Please log in to view your order details.</div>
     }
-    return <OrderDetails user={user} id={id} />
+    return (
+        <OrderDetails user={user} id={id} />
+    )
 }

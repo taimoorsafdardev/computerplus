@@ -76,7 +76,7 @@ export function ProductCard({ product, user }: ProductCardProps) {
       )}
 
       {/* Product Image */}
-      <Link href={`/product/${product.id}`} className="overflow-hidden rounded-xl group">
+      <Link href={`/product/${product.id}`} prefetch={true} className="overflow-hidden rounded-xl group">
         <Image
           src={product.image}
           alt={product.name}
@@ -91,6 +91,7 @@ export function ProductCard({ product, user }: ProductCardProps) {
       <div className="flex flex-col gap-1 mt-4">
         <Link
           href={`/product/${product.id}`}
+          prefetch={true}
           className="font-semibold text-sm text-gray-900 hover:underline"
         >
           {product.name.length > 55
@@ -151,7 +152,7 @@ export function ProductCard({ product, user }: ProductCardProps) {
                 />
                 {user.role === "admin" && (
                   <>
-                    <Link href={`/product/edit/${product.id}`}>
+                    <Link href={`/product/edit/${product.id}`} prefetch={true}>
                       <Pencil
                         size={36}
                         className="text-white bg-indigo-500 rounded-full p-2 cursor-pointer"

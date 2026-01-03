@@ -2,10 +2,11 @@
 
 import { ProductCard } from "@/components/product-card";
 import { Product } from '@/types/product';
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, Suspense } from "react";
 import Loader from "../Loader";
 import { SessionType } from "@/lib/auth/core/session";
 import { useInView } from "react-intersection-observer";
+import MainLoader from "../MainLoader";
 
 const PAGE_SIZE = 12;
 

@@ -111,8 +111,7 @@ export default function OrderDetails({ user, id }: Props) {
             const result = await res.json();
 
             if (result.success) {
-                setOrder(result.data); // update local state
-                toast.success("Updated Info")
+                window.location.reload()
             } else {
                 toast.error(result.message || "Failed to update order");
             }

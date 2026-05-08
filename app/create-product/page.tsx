@@ -56,6 +56,7 @@ export default function Page() {
             price: '',
             tag: '',
             discount: '',
+            discountPrice: '',
             category: '',
         },
     });
@@ -158,27 +159,85 @@ export default function Page() {
                                     <FormItem>
                                         <FormLabel>Price</FormLabel>
                                         <FormControl>
-                                            <Input type="number" placeholder="0" {...field} />
+                                            <Input 
+                                                type="number" 
+                                                placeholder="0" 
+                                                {...field} 
+                                                onChange={(e) => {
+                                                    field.onChange(e);
+                                                    const val = e.target.value;
+                                                    const discount = form.getValues('discount');
+                                                    if (val && discount) {
+                                                        const p = Number(val) - (Number(val) * Number(discount) / 100);
+                                                        form.setValue('discountPrice', Math.round(p).toString());
+                                                    }
+                                                }}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
 
-                            {/* Discount */}
-                            <FormField
-                                control={form.control}
-                                name="discount"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Discount (%)</FormLabel>
-                                        <FormControl>
-                                            <Input type="number" placeholder="0" {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+                            {/* Discount and Discount Price */}
+                            <div className="grid grid-cols-2 gap-4">
+                                <FormField
+                                    control={form.control}
+                                    name="discount"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Discount (%)</FormLabel>
+                                            <FormControl>
+                                                <Input 
+                                                    type="number" 
+                                                    placeholder="0" 
+                                                    {...field} 
+                                                    onChange={(e) => {
+                                                        field.onChange(e);
+                                                        const val = e.target.value;
+                                                        const price = Number(form.getValues('price'));
+                                                        if (price && val) {
+                                                            const p = price - (price * Number(val) / 100);
+                                                            form.setValue('discountPrice', Math.round(p).toString());
+                                                        } else if (!val) {
+                                                            form.setValue('discountPrice', '');
+                                                        }
+                                                    }}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="discountPrice"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Discount Price</FormLabel>
+                                            <FormControl>
+                                                <Input 
+                                                    type="number" 
+                                                    placeholder="0" 
+                                                    {...field} 
+                                                    onChange={(e) => {
+                                                        field.onChange(e);
+                                                        const val = e.target.value;
+                                                        const price = Number(form.getValues('price'));
+                                                        if (price && val) {
+                                                            const d = ((price - Number(val)) / price) * 100;
+                                                            form.setValue('discount', d.toFixed(1).replace(/\.0$/, ''));
+                                                        } else if (!val) {
+                                                            form.setValue('discount', '');
+                                                        }
+                                                    }}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
 
                             {/* Tag */}
                             <FormField
@@ -261,7 +320,6 @@ export default function Page() {
                                 name="image"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="mb-2">Product Image</FormLabel>
                                         <FormControl>
                                             <FormControl>
                                                 <FormField
